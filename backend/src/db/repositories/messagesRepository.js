@@ -5,6 +5,11 @@ async function addMessage(messageInfo) {
     return await newMessage.save();
 }
 
+async function getAllMessages() {
+    return MessageModel.find();
+}
+
 module.exports = {
     addMessage,
+    getAllMessages,
 }

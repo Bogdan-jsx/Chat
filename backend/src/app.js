@@ -1,14 +1,18 @@
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const controllers = require("./controllers/index");
-const User = require("./db/models/user").UserModel;
+const User = require("./db/models/user").model;
 const messagesRepository = require("./db/repositories/messagesRepository");
-const app = express();
+
+app.use(cors());
 
 mongoose.connect("mongodb://localhost:27017/chat", {
   useNewUrlParser: true,
@@ -17,6 +21,8 @@ mongoose.connect("mongodb://localhost:27017/chat", {
   useCreateIndex: true,
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(session({ secret: "SECRET" }))
 
 app.use(passport.initialize());
@@ -51,10 +57,12 @@ passport.deserializeUser(function (id, done) {
 controllers(app);
 
 io.on("connection", (socket) => {
+  console.log("Connected");
   socket.on("message", (data) => {
-    await messagesRepository.addMessage({ message: data.message, author: data.author });
+    console.log(data);
+    messagesRepository.addMessage({ message: data.message, authorName: data.authorName, authorAvatar: data.authorAvatar, sendTime: data.sendTime });
     io.emit("message", data);
   })
 })
 
-app.listen(3000);
+httpServer.listen(3000);

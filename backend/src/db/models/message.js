@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
     message: String,
-    author: String,
+    authorName: String,
+    authorAvatar: String,
     sendTime: {
         type: Date,
         default: new Date(),
@@ -10,5 +11,5 @@ const messageSchema = new mongoose.Schema({
 })
 
 module.exports = {
-    MessageModel: mongoose.model("user", messageSchema),
+    MessageModel: mongoose.model("messages", messageSchema),
 } 

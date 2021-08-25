@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    name: String,
+    username: String,
     password: String,
     email: {
         type: String,
@@ -10,13 +10,11 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: mongoose.Schema.Types.ObjectId,
         default: "",
-    },
-    id: {
-        type: String,
-        unique: true,
+        unique: false,
     }
 })
 
 module.exports = {
-    UserMode: mongoose.model("user", userSchema),
+    model: mongoose.model("users", userSchema),
+    userSchema,
 } 

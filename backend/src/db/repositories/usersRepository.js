@@ -1,4 +1,4 @@
-const UserModel = require("../models/user").UserModel;
+const UserModel = require("../models/user").model;
 
 async function addUser(userInfo) {
     const newUser = UserModel(userInfo);
