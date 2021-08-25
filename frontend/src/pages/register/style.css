@@ -18,3 +18,11 @@
 .register form label {
     font-size: 20px;
 }
+.register p {
+    text-align: center;
+    font-size: 18px;
+}
+.register a {
+    color: rgb(75, 135, 214);
+    text-decoration: underline;
+}

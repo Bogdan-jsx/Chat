@@ -14,9 +14,11 @@ export const Message: React.FC<Props> = ({ message }) => {
     let number = sendTime.getDate() < 10 ? "0" +  sendTime.getDate() : sendTime.getDate();
     const date = `${number}.${month}.${sendTime.getFullYear()} ${sendTime.getHours()}:${minutes}`;
     
+    const avatar = message.authorAvatar ? `http://localhost:3000/user/avatar/${message.authorAvatar}` : `${process.env.PUBLIC_URL}/avatar.png`;
+
     return (
         <div className="message">
-            <img src={process.env.PUBLIC_URL + "/avatar.png"} alt="" />
+            <img src={avatar} alt="" />
             <div>
                 <p><b>{message.authorName}</b></p>
                 <p className="message-text">{message.message}</p>

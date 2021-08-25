@@ -9,11 +9,14 @@ const upload = multer({ storage: multer.memoryStorage() })
 const router = express.Router();
 
 router.post("/register", upload.single("avatarImg"), async (req, res) => {
+    console.log(req);
     const { username, password, email } = req.body;
     let avatar = undefined;
     const file = req.file;
+    console.log(file);
     if (file) {
         avatar = await imagesRepository.createFile({ file });
+        console.log(avatar);
     }
     await userRepository.addUser({ username, password, email, avatar });
     res.sendStatus(200);
@@ -29,6 +32,10 @@ router.post("/login", passport.authenticate("local"), async (req, res) => {
 router.get("/logout", (req, res) => {
     req.logOut;
     res.sendStatus(200);
+})
+router.get("/avatar/:id", async (req, res) => {
+    const { id } = req.params;
+    await imagesRepository.findFile(id, res);
 })
 
 module.exports = router;

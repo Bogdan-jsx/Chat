@@ -25,7 +25,6 @@ export const addMessage = (message: MessageType) => {
 }
 
 export const loadMessages = () => (dispatch: any) => {
-    console.log("load messages action");
     fetch("http://localhost:3000/messages")
         .then(res => res.json())
         .then(json => dispatch(putMessages(json)));

@@ -18,3 +18,11 @@
 .login form label {
     font-size: 20px;
 }
+.login p {
+    text-align: center;
+    font-size: 18px;
+}
+.login a {
+    color: rgb(75, 135, 214);
+    text-decoration: underline;
+}

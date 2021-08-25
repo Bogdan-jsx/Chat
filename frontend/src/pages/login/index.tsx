@@ -1,7 +1,6 @@
 import React, { FormEvent, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "./style.css";
-// import { LoginInfo } from "../../store/user/actions";
 
 interface Props {
     login: (email: string, password: string) => void;
@@ -33,6 +32,7 @@ export const LoginPage: React.FC<Props> = ({ login }) => {
                 <input type="password" placeholder="Пароль..." name="password" ref={passwordInput} required />
                 <input type="submit" value="Войти" />
             </form>
+            <p>Нету аккаунта? <Link to="/register" >Зарегистрироваться</Link></p>
         </div>
     )
 }

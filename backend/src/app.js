@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
@@ -21,6 +22,7 @@ mongoose.connect("mongodb://localhost:27017/chat", {
   useCreateIndex: true,
 });
 
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({ secret: "SECRET" }))
