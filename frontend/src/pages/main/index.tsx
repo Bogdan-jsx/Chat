@@ -16,6 +16,7 @@ export const MainPage: React.FC<Props> = ({ loadMessages }) => {
         loadMessages();
     }, [loadMessages]);
 
+
     return (
         <>
             <HeaderContainer />

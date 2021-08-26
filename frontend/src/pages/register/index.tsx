@@ -10,7 +10,7 @@ export const RegisterPage: React.FC = () => {
                 <input type="text" placeholder="Email..." name="email" />
                 <input type="password" placeholder="Пароль..." name="password"/>
                 <label>Аватар: </label>
-                <input type="file" name="avatarImg" />
+                <input type="file" name="avatarImg" className="fileInput" />
                 <input type="submit" value="Зарегистрироваться" />
             </form>
             <p>Уже есть аккаунт?<Link to="/login" >Войти</Link></p>

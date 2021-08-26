@@ -30,7 +30,7 @@ export const LoginPage: React.FC<Props> = ({ login }) => {
             <form onSubmit={onSubmit.bind(null)}>
                 <input type="text" placeholder="Email..." name="email" ref={emailInput} required />
                 <input type="password" placeholder="Пароль..." name="password" ref={passwordInput} required />
-                <input type="submit" value="Войти" />
+                <input type="submit" value="Войти" className="submitButton" />
             </form>
             <p>Нету аккаунта? <Link to="/register" >Зарегистрироваться</Link></p>
         </div>

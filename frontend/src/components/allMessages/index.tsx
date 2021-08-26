@@ -14,10 +14,12 @@ export const AllMessages: React.FC<Props> = ({ messages, addMessage, socket }) =
     useEffect(() => {
         socket.on("message", (data) => {
             addMessage(data);
-            window.scrollTo(0, window.document.body.offsetHeight);
         })
     }, [addMessage, socket]);
     
+    useEffect(() => {
+        window.scrollTo(0, window.document.body.offsetHeight);
+    }, [messages]);
 
     return (
         <div className="messages">

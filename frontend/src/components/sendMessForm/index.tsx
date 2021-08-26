@@ -22,8 +22,8 @@ export const SendMessForm: React.FC<Props> = ({ socket, user }) => {
     }
 
     return (
-        <form className="sendMessForm">
-            <textarea placeholder="Сообщение..." ref={messageInput} ></textarea>
+        <form id="sendMessForm">
+            <textarea placeholder="Сообщение..." ref={messageInput}  ></textarea>
             <button onClick={onSendButtonClick.bind(null)} >Отправить</button>
         </form>
     )

@@ -5,6 +5,7 @@
     background-color: lightgrey;
     border-radius: 5px;
     margin-top: 10px;
+    z-index: -2;
 }
 .message img {
     width: 70px;

@@ -1,6 +1,7 @@
 .login {
-    width: 800px;
-    margin: 50px auto;
+    margin: 40px auto;
+    padding: 20px;
+    width: 300px;
 }
 
 .login form {
@@ -13,6 +14,7 @@
     margin-bottom: 30px;
     font-size: 20px;
     padding: 5px;
+    width: 100%;
 }
 
 .login form label {
@@ -25,4 +27,13 @@
 .login a {
     color: rgb(75, 135, 214);
     text-decoration: underline;
+}
+.submitButton {
+    width: 120px !important;
+}
+
+@media screen and (max-width: 370px) {
+    .login {
+        width: 85%;
+    }
 }
