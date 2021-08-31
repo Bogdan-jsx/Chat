@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const messageSchema = new mongoose.Schema({
     message: String,
     authorName: String,
-    authorAvatar: String,
+    authorId: mongoose.Types.ObjectId,
     sendTime: {
         type: Date,
         default: new Date(),

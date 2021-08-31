@@ -61,8 +61,7 @@ controllers(app);
 io.on("connection", (socket) => {
   console.log("Connected");
   socket.on("message", (data) => {
-    console.log(data);
-    messagesRepository.addMessage({ message: data.message, authorName: data.authorName, authorAvatar: data.authorAvatar, sendTime: data.sendTime });
+    messagesRepository.addMessage({ message: data.message, authorName: data.authorName, authorId: data.authorId, sendTime: data.sendTime });
     io.emit("message", data);
   })
 })

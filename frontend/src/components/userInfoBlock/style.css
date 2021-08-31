@@ -1,0 +1,27 @@
+#userInfo {
+    width: 65%;
+}
+
+#username {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+#username > button {
+    margin-left: 20px;
+    font-size: 16px;
+}
+#username > h2 {
+    margin: 0;
+    font-size: 30px;
+}
+#username > input {
+    font-size: 18px;
+}
+#username > input[type=button], #username > input[type=submit] {
+    margin-left: 20px;
+}
+
+.userEmail {
+    font-size: 20px;
+}

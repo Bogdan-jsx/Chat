@@ -1,0 +1,6 @@
+#cabinet {
+    width: 60%;
+    margin: 110px auto;
+    display: flex;
+    justify-content: space-between;
+}

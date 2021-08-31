@@ -5,6 +5,7 @@ import MainPageContainer from './pages/main/container';
 import { RegisterPage } from './pages/register/index';
 import LoginPageContainer from "./pages/login/conatiner";
 import { putUser } from "./store/user/actions";
+import CabinetContainer from './pages/cabinet/container';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={MainPageContainer} />
         <Route path="/home" exact component={MainPageContainer} />
+        <Route path="/cabinet" exact component={CabinetContainer} />
         <Route path="/register" exact component={RegisterPage} />
         <Route path="/login" exact component={LoginPageContainer} />
       </Switch>

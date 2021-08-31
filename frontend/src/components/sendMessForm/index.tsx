@@ -16,7 +16,7 @@ export const SendMessForm: React.FC<Props> = ({ socket, user }) => {
         if (messageInput.current?.value) {
             const messageText = messageInput.current.value;
             messageInput.current.value = "";
-            const data = { message: messageText, authorName: user.username, authorAvatar: user.avatar, sendTime: new Date() };
+            const data = { message: messageText, authorName: user.username, authorId: user._id, sendTime: new Date() };
             socket.emit("message", data);
         }
     }

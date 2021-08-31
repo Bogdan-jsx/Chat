@@ -11,11 +11,6 @@ export interface User {
     _id: string,
 }
 
-// export interface LoginInfo {
-//     email: string,
-//     password: string,
-// }
-
 export const putUser = (user: User) => {
     return {
         type: ActionTypes.PUT_USER,
@@ -31,7 +26,6 @@ export const removeUser = () => {
 }
 
 export const login = (email: string, password: string) => (dispatch: any) => {
-    console.log("login");
     fetch("http://localhost:3000/user/login", {
         method: "POST",
         headers: {
@@ -48,10 +42,24 @@ export const login = (email: string, password: string) => (dispatch: any) => {
 }
 
 export const logout = () => async (dispatch: any) => {
-    console.log("logout");
     fetch("http://localhost:3000/user/logout")
         .then(() => {
             dispatch(removeUser());
             localStorage.setItem("chatUser", "");
         })
+}
+
+export const updateUsername = (id: string, name: string) => async (dispatch: any) => {
+    fetch(`http://localhost:3000/user/updateName/${id}`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({ username: name }),
+    })
+    .then(res => res.json())
+    .then(json => {
+        dispatch(putUser(json));
+        localStorage.setItem("chatUser", JSON.stringify(json));
+    })
 }

@@ -7,7 +7,7 @@ export interface MessageType {
     message: string,
     sendTime: Date,
     authorName: string,
-    authorAvatar: string,
+    authorId: string,
 }
 
 export const putMessages = (messages: MessageType[]) => {
