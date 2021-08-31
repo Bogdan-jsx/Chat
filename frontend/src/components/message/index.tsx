@@ -14,11 +14,13 @@ export const Message: React.FC<Props> = ({ message }) => {
     let number = sendTime.getDate() < 10 ? "0" +  sendTime.getDate() : sendTime.getDate();
     const date = `${number}.${month}.${sendTime.getFullYear()} ${sendTime.getHours()}:${minutes}`;
 
+    //
+
     return (
         <div className="message">
-            <img src={`http://localhost:3000/user/avatar/${message.authorId}`} alt="" />
+            <img src={`http://localhost:3000/user/avatar/${message.author.avatar}`} alt="" />
             <div>
-                <p><b>{message.authorName}</b></p>
+                <p><b>{message.author.username}</b></p>
                 <p className="message-text">{message.message}</p>
                 <p className="date">{date}</p>
             </div>

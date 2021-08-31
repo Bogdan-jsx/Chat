@@ -63,3 +63,20 @@ export const updateUsername = (id: string, name: string) => async (dispatch: any
         localStorage.setItem("chatUser", JSON.stringify(json));
     })
 }
+
+export const updateAvatar = (id: string, avatarImg: File) => async (dispatch: any) => {
+    const formData = new FormData();
+    formData.append("avatarImg", avatarImg);
+    fetch(`http://localhost:3000/user/updateAvatar/${id}`, {
+        method: "POST",
+        // headers: {
+        //     'Content-Type': 'multipart/form-data; boundary=---'
+        // },
+        body: formData,
+    })
+    .then(res => res.json())
+    .then(json => {
+        dispatch(putUser(json));
+        localStorage.setItem("chatUser", JSON.stringify(json));
+    })
+}

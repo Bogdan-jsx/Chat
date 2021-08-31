@@ -14,10 +14,10 @@ export const Header: React.FC<Props> = ({ logout }) => {
 
     return (
         <header>
-            <div id="logo">
+            <Link to="/" id="logo">
                 <img src={process.env.PUBLIC_URL + "/logo192.png"} alt="Logo" />
                 <h1>Chat</h1>
-            </div>
+            </Link>
             <div id="userBlock" className="hamburger-menu">
                 <input id="menu__toggle" type="checkbox" />
                 <label className="menu__btn" htmlFor="menu__toggle">

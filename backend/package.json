@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.13.7",
+    "mongoose-autopopulate": "^0.14.0",
     "multer": "^1.4.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

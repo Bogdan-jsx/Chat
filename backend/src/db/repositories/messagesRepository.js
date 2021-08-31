@@ -6,7 +6,9 @@ async function addMessage(messageInfo) {
 }
 
 async function getAllMessages() {
-    return MessageModel.find();
+    const messages = await MessageModel.find().limit(100);
+    console.log(messages);
+    return messages;
 }
 
 module.exports = {

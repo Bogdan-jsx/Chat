@@ -32,25 +32,18 @@ router.get("/logout", (req, res) => {
 
 router.get("/avatar/:id", async (req, res) => {
     const { id } = req.params;
-    const user = await userRepository.getUserById(id);
-    let imgId = "";
-    if (user.avatar) {
-        imgId = user.avatar;
-    } else {
-        imgId = "612e4e1781326c2164f2eb26"; //Default avatar image
-    }
-    await imagesRepository.findFile(imgId, res);
+    await imagesRepository.findFile(id, res);
 })
 
-router.post("/avatar/:id", upload.single("avatarImg"), async (req, res) => {
+router.post("/updateAvatar/:id", upload.single("avatarImg"), async (req, res) => {
     const { id } = req.params;
     let avatar = undefined;
     const file = req.file;
     if (file) {
         avatar = await imagesRepository.createFile({ file });
     }
-    await userRepository.updateUser(id, { avatar });
-    res.sendStatus(200);
+    const newUser = await userRepository.updateUser(id, { avatar });
+    res.status(200).json(newUser);
 })
 
 router.post("/updateName/:id", async (req, res) => {

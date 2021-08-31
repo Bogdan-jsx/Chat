@@ -60,9 +60,9 @@ controllers(app);
 
 io.on("connection", (socket) => {
   console.log("Connected");
-  socket.on("message", (data) => {
-    messagesRepository.addMessage({ message: data.message, authorName: data.authorName, authorId: data.authorId, sendTime: data.sendTime });
-    io.emit("message", data);
+  socket.on("message", async (data) => {
+    const message = await messagesRepository.addMessage({ message: data.message, author: data.authorId, sendTime: data.sendTime });
+    io.emit("message", message);
   })
 })
 

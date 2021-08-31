@@ -6,8 +6,10 @@ export enum ActionTypes {
 export interface MessageType {
     message: string,
     sendTime: Date,
-    authorName: string,
-    authorId: string,
+    author: {
+        username: string,
+        avatar: string,
+    },
 }
 
 export const putMessages = (messages: MessageType[]) => {
