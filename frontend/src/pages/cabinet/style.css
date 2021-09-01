@@ -3,4 +3,12 @@
     margin: 110px auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+    #cabinet {
+        width: 95%;
+        justify-content: center;
+    }
 }

@@ -25,3 +25,13 @@
 .userEmail {
     font-size: 20px;
 }
+@media screen and (max-width: 850px) {
+    #userInfo {
+        width: 55%;
+    }
+}
+@media screen and (max-width: 600px) {
+    #userInfo {
+        width: 95%;
+    }
+}
