@@ -20,7 +20,7 @@ function createFileByBucket({ file, fileId, bucket }) {
 }
 
 async function connectBucket(cb) {
-  return await MongoClient.connect("mongodb://localhost:27017/", {
+  return await MongoClient.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -33,7 +33,7 @@ async function connectBucket(cb) {
 }
 
 async function findFile(fileId, res) {
-  return await MongoClient.connect("mongodb://localhost:27017/", {
+  return await MongoClient.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -15,7 +18,7 @@ const messagesRepository = require("./db/repositories/messagesRepository");
 
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/chat", {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -66,4 +69,4 @@ io.on("connection", (socket) => {
   })
 })
 
-httpServer.listen(3000);
+httpServer.listen(process.env.PORT);
